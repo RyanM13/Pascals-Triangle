@@ -6,16 +6,14 @@ public class Main{
         Scanner in = new Scanner(System.in);
         System.out.print("How large would you like the triangle to be: ");
         int size = in.nextInt();
-        int fact; 
-        fact = combination(24, 12); 
-        System.out.println(fact);
+
+
+        Print(size);
         in.close();
 }
 
 public static int combination(int n, int r){
-    int C = 0;
-    C = factorial(n)/factorial(r)*factorial(n-r);
-    return C;
+    return factorial(n)/(factorial(r)*factorial(n-r));
 }
 
 public static int factorial(int n){
@@ -26,5 +24,27 @@ public static int factorial(int n){
     }
     return s;
 }
+
+public static int Pascal(int n, int m){
+
+    return combination(n, m);
+}
+
+public static void Print(int n){
+    for (int i = 0; i < n; i++) {
+        // Print leading spaces to center the triangle
+        for (int j = n - i; j > 1; j--) {
+            System.out.print(" ");
+        }
+
+        // Print Pascal's Triangle numbers for the current row
+        for (int j = 0; j <= i; j++) {
+            System.out.print(Pascal(i, j) + " ");  // Add a space after each number
+        }
+
+        // Move to the next line
+        System.out.println();
+    }
+} 
 
 }
